@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
 import { App } from 'components/App';
 import { Provider } from 'react-redux';
-import { store } from './Redux/store';
+import { store, persistor } from './Redux/store';
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(

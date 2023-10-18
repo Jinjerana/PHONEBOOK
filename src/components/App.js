@@ -4,24 +4,33 @@
 import { Route, Routes } from 'react-router-dom';
 import HomeView from 'Redux/views/HomeView';
 import RegisterView from 'Redux/views/RegisterView';
-
-// import RegisterView
-// import LoginView
-// import ContactsView
+import { Layout } from './Layout';
+import LoginView from 'Redux/views/LoginView';
+import AppBar from './AppBar';
+import ContactsView from 'Redux/views/ContactsView';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import authOperations from '../Redux/auth/auth-operations';
 
 export const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+  }, [dispatch]);
+
   return (
-    // <Container>
-    //   <AppBar />
-    //   <Switch>
-    <Routes>
-      <Route exact path="/home" component={HomeView} />
-      <Route exact path="/register" component={RegisterView} />
-      {/* <Route exact path="/login" component={LoginView} />
-        <Route exact path="/contacts" component={ContactsView} /> */}
-    </Routes>
-    //   </Switch>
-    // </Container>
+    <div>
+      <AppBar />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route exact path="/home" element={<HomeView />} />
+          <Route exact path="/register" element={<RegisterView />} />
+          <Route exact path="/login" element={<LoginView />} />
+          <Route exact path="/contacts" component={<ContactsView />} />
+        </Route>
+      </Routes>
+    </div>
     // <div>
     //   <h1>Phonebook</h1>
     //   <Forma />

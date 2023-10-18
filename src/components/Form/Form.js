@@ -2,8 +2,8 @@ import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'Redux/contactsAPI';
-import { selectVisibleContacts } from 'Redux/selectors';
+import { addContact } from 'Redux/Contacts/contactsAPI';
+import { selectVisibleContacts } from 'Redux/Contacts/selectors';
 
 const schema = yup.object().shape({
   name: yup

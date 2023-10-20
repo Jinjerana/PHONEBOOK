@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-
 import { Report } from 'notiflix/build/notiflix-report-aio';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';

@@ -2,14 +2,13 @@ import { NavLink } from 'react-router-dom';
 
 const styles = {
   container: {
-    height: '100%',
     display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    gap: 40,
+  },
+  link: {
+    display: 'flex',
     fontWeight: 500,
-    fontSize: 52,
-    padding: 12,
-    textAlign: 'center',
+    fontSize: 22,
     color: '#80A6FF',
   },
   activeLink: {
@@ -19,22 +18,22 @@ const styles = {
 
 export default function AuthNav() {
   return (
-    <div>
+    <div style={styles.container}>
       <NavLink
         to="/register"
         exact
         style={styles.link}
-        activeStyle={styles.activeLink}
+        activestyle={styles.activeLink}
       >
-        Регистрация
+        Registration
       </NavLink>
       <NavLink
         to="/login"
         exact
         style={styles.link}
-        activeStyle={styles.activeLink}
+        activestyle={styles.activeLink}
       >
-        Логин
+        Login
       </NavLink>
     </div>
   );

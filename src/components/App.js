@@ -1,42 +1,63 @@
-// import Forma from './Form';
-// import ContactsList from './Contacts/Contacts';
-// import Filter from './Filter';
 import { Route, Routes } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, lazy, Suspense } from 'react';
+import { Layout } from './Layout';
 import HomeView from 'Redux/views/HomeView';
 import RegisterView from 'Redux/views/RegisterView';
-import { Layout } from './Layout';
 import LoginView from 'Redux/views/LoginView';
-import AppBar from './AppBar';
 import ContactsView from 'Redux/views/ContactsView';
-import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import AppBar from './UserMenu/AppBar';
 import authOperations from '../Redux/auth/auth-operations';
+import authSelectors from 'Redux/auth/auth-selectors';
+import { PrivateRoute } from './UserMenu/PrivateRoute';
+import { PublicRoute } from './UserMenu/PublicRoute';
+
+// const HomeView = lazy(() => import('../Redux/views/HomeView'));
+// const RegisterView = lazy(() => import('../Redux/views/RegisterView'));
+// const LoginView = lazy(() => import('../Redux/views/LoginView'));
+// const ContactsView = lazy(() => import('../Redux/views/ContactsView'));
 
 export const App = () => {
   const dispatch = useDispatch();
+  const isFetchingUser = useSelector(authSelectors.getFetching);
 
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
   }, [dispatch]);
 
   return (
-    <div>
-      <AppBar />
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route exact path="/home" element={<HomeView />} />
-          <Route exact path="/register" element={<RegisterView />} />
-          <Route exact path="/login" element={<LoginView />} />
-          <Route exact path="/contacts" component={<ContactsView />} />
-        </Route>
-      </Routes>
-    </div>
-    // <div>
-    //   <h1>Phonebook</h1>
-    //   <Forma />
-    //   <h2>Contacts</h2>
-    //   <Filter />
-    //   <ContactsList />
-    // </div>
+    isFetchingUser && (
+      <div>
+        <AppBar />
+        {/* <Suspense fallback={<p>Loading...</p>}> */}
+        <Routes>
+          {/* <Route path="/" element={<Layout />}> */}
+          <Route path="/" element={<HomeView />} />
+
+          <Route
+            path="/register"
+            element={
+              <PublicRoute component={RegisterView} redirectTo="/home" />
+            }
+            restricted
+          />
+
+          <Route
+            path="/login"
+            element={<PublicRoute component={LoginView} redirectTo="/home" />}
+            restricted
+          />
+
+          <Route
+            path="/contacts"
+            element={
+              <PrivateRoute component={ContactsView} redirectTo="/login" />
+            }
+          />
+          {/* </Route> */}
+        </Routes>
+        {/* </Suspense> */}
+      </div>
+    )
   );
 };

@@ -3,13 +3,38 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 const styles = {
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
   form: {
     width: 300,
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center',
   },
   label: {
     display: 'flex',
     flexDirection: 'column',
     marginBottom: 15,
+    fontSize: 22,
+    color: '#80A6FF',
+  },
+  input: {
+    height: 30,
+    borderWidth: 3,
+    borderRadius: 5,
+    borderColor: '#80A6FF',
+  },
+  button: {
+    fontWeight: 700,
+    fontSize: 22,
+    height: 50,
+    cursor: 'pointer',
+    borderRadius: 5,
+    borderColor: '#80A6FF',
+    color: '#80A6FF',
   },
 };
 
@@ -37,12 +62,13 @@ export default function LoginView() {
   };
 
   return (
-    <div>
-      <h1>Логин</h1>
+    <div style={styles.container}>
+      <h1>Login</h1>
       <form onSubmit={handleSubmit} style={styles.form} autocomplete="off">
         <label style={styles.label}>
-          Почта
+          Email
           <input
+            style={styles.input}
             type="email"
             name="email"
             value={email}
@@ -51,16 +77,17 @@ export default function LoginView() {
         </label>
 
         <label style={styles.label}>
-          Пароль
+          Password
           <input
+            style={styles.input}
             type="password"
             name="password"
             value={password}
             onChange={handleChange}
           />
         </label>
-        <button type="submit" onSubmit={handleSubmit}>
-          Залогиниться
+        <button style={styles.button} type="submit" onSubmit={handleSubmit}>
+          Log In
         </button>
       </form>
     </div>

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import authOperations from '../Redux/auth/auth-operations';
+import authOperations from '../../Redux/auth/auth-operations';
 import authSelectors from 'Redux/auth/auth-selectors';
 
 const styles = {
@@ -8,8 +8,9 @@ const styles = {
     alignItems: 'center',
   },
   name: {
-    fontWeight: 700,
-    marginRight: 12,
+    fontWeight: 500,
+    fontSize: 22,
+    color: '#80A6FF',
   },
 };
 
@@ -19,9 +20,9 @@ export default function UserMenu() {
 
   return (
     <div style={styles.container}>
-      <span style={styles.name}>Привет, {name}</span>
+      <span style={styles.name}>Hallo, {name}</span>
       <button type="button" onClick={() => dispatch(authOperations.logOut())}>
-        Уйти
+        Go out
       </button>
     </div>
   );

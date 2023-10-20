@@ -13,9 +13,9 @@ const styles = {
 };
 
 const HomeView = () => {
-  <div style={styles.container}>
-    <h1 styles={styles.title}>HALLO!{'HALLO!'}</h1>
-  </div>;
+  // <div style={styles.container}>
+  <h1 styles={styles.title}>HALLO!</h1>;
+  // </div>;
 };
 
 export default HomeView;

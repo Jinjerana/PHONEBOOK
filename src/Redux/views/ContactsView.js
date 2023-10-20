@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ContactsList from 'components/Contacts/Contacts';
 import Filter from 'components/Filter';
@@ -11,7 +11,7 @@ const barStyles = {
   marginBottom: 20,
 };
 
-export default function ContactsView(params) {
+export default function ContactsView() {
   const dispatch = useDispatch();
   const isLoadingContacts = useSelector(selectVisibleContacts);
 
@@ -20,7 +20,8 @@ export default function ContactsView(params) {
   return (
     <div style={barStyles}>
       <Filter />
-
+      <div>{isLoadingContacts && 'Please wait...'}</div>
+      <h1>Contacts</h1>
       <ContactsList />
     </div>
   );

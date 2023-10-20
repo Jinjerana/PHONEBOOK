@@ -31,8 +31,29 @@ const authSlice = createSlice({
         state.user = { name: null, email: null };
         state.token = null;
         state.isLoggedIn = false;
+      })
+      .addCase(authOperations.fetchCurrentUser.pending, (state, action) => {
+        state.isFetching = true;
+      })
+      .addCase(authOperations.fetchCurrentUser.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.isLoggedIn = true;
+        state.isFetching = false;
+      })
+      .addCase(authOperations.fetchCurrentUser.rejected, (state, action) => {
+        state.isFetching = false;
       }),
 
+  // [authOperations.fetchCurrentUser.pending](state, action) {
+  //   state.isFetching = true;
+  // },
+  // [authOperations.fetchCurrentUser.fulfilled](state, action) {
+  //   state.user = action.payload;
+  //   state.isLoggedIn = true;
+  //   state.isFetching = false;
+  // },
+  // [authOperations.fetchCurrentUser.rejected](state, action) {
+  //   state.isFetching = false;
   // {
   //   [authOperations.register.fulfilled](state, action) {
   //     state.user = action.payload.user;

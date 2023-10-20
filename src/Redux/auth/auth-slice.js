@@ -1,18 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
 import authOperations from './auth-operations';
 
-const initialState = {
-  user: { name: null, email: null },
-  token: null,
-  isLoggedIn: false,
-  isFetching: false,
-  // loading: false,
-  //   error: false,
-};
-
 const authSlice = createSlice({
   name: 'auth',
-  initialState,
+  initialState: {
+    user: { name: null, email: null },
+    token: null,
+    isLoggedIn: false,
+    isFetching: false,
+    // loading: false,
+    //   error: false,
+  },
   extraReducers: builder =>
     builder
       .addCase(authOperations.register.pending, (state, action) => state)
@@ -84,5 +82,5 @@ const authSlice = createSlice({
   // },
 });
 
-export default authSlice.reducer;
+// export default authSlice.reducer;
 export const authReducer = authSlice.reducer;

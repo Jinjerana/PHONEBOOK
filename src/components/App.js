@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, lazy } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 
 // import HomeView from 'Redux/views/HomeView';
 // import RegisterView from 'Redux/views/RegisterView';
@@ -26,8 +26,8 @@ export const App = () => {
   }, [dispatch]);
 
   return (
-    isFetchingUser && (
-      <div>
+    !isFetchingUser && (
+      <Suspense>
         <AppBar />
 
         <Routes>
@@ -54,7 +54,7 @@ export const App = () => {
             }
           />
         </Routes>
-      </div>
+      </Suspense>
     )
   );
 };

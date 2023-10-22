@@ -1,7 +1,5 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import ContactsList from 'components/Contacts/Contacts';
-import Filter from 'components/Filter';
 import { selectIsLoading } from 'Redux/Contacts/selectors';
 import { fetchContacts } from 'Redux/Contacts/contactsAPI';
 import { AppContacts } from 'components/AppContacts';

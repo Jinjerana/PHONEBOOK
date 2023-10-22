@@ -1,7 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import authSelectors from 'Redux/auth/auth-selectors';
-import UserMenu from './UserMenu';
 
 const styles = {
   container: {

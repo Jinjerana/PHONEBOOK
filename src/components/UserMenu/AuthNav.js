@@ -4,6 +4,7 @@ const styles = {
   container: {
     display: 'flex',
     gap: 40,
+    margin: 0,
   },
   link: {
     display: 'flex',
@@ -11,28 +12,15 @@ const styles = {
     fontSize: 22,
     color: '#80A6FF',
   },
-  activeLink: {
-    color: '#FF6600',
-  },
 };
 
 export default function AuthNav() {
   return (
     <div style={styles.container}>
-      <NavLink
-        to="/register"
-        exact
-        style={styles.link}
-        activestyle={styles.activeLink}
-      >
+      <NavLink to="/register" style={styles.link}>
         Registration
       </NavLink>
-      <NavLink
-        to="/login"
-        exact
-        style={styles.link}
-        activestyle={styles.activeLink}
-      >
+      <NavLink to="/login" style={styles.link}>
         Login
       </NavLink>
     </div>

@@ -15,7 +15,9 @@ export default function ContactsView() {
   const dispatch = useDispatch();
   const isLoadingContacts = useSelector(selectVisibleContacts);
 
-  useEffect(() => dispatch(fetchContacts()), [dispatch]);
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
   return (
     <div style={barStyles}>

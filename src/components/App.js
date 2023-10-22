@@ -31,13 +31,12 @@ export const App = () => {
         <AppBar />
 
         <Routes>
-          <Route path="/" element={<HomeView />} />
+          <Route path="/" element={<PublicRoute component={HomeView} />} />
+          {/* <Route path="/" element={<HomeView />} /> */}
 
           <Route
             path="/register"
-            element={
-              <PublicRoute component={RegisterView} redirectTo="/home" />
-            }
+            element={<PublicRoute component={RegisterView} redirectTo="/" />}
             restricted
           />
 

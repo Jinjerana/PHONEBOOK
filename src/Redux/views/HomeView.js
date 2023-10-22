@@ -1,21 +1,19 @@
-const styles = {
-  container: {
-    height: '100%',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontWeight: 500,
-    fontSize: 52,
-    textAlign: 'center',
-  },
-};
+import homeImage from '../views/image/homeImage.jpg';
 
 const HomeView = () => {
-  // <div style={styles.container}>
-  <h1 styles={styles.title}>HALLO!</h1>;
-  // </div>;
+  return (
+    <img
+      src={homeImage}
+      alt="img"
+      width=""
+      style={{
+        display: 'block',
+        width: '100%',
+        height: 'auto',
+        margin: '0 auto',
+      }}
+    />
+  );
 };
 
 export default HomeView;

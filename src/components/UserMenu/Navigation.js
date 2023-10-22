@@ -4,8 +4,17 @@ import authSelectors from 'Redux/auth/auth-selectors';
 import UserMenu from './UserMenu';
 
 const styles = {
-  link: {
-    marginRight: 276,
+  container: {
+    display: 'flex',
+  },
+  linkHome: {
+    marginRight: 250,
+    fontWeight: 500,
+    fontSize: 22,
+    color: '#80A6FF',
+  },
+  linkContacts: {
+    marginRight: 40,
     fontWeight: 500,
     fontSize: 22,
     color: '#80A6FF',
@@ -18,24 +27,20 @@ const styles = {
 const Navigation = () => {
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
   return (
-    <nav>
-      <NavLink to="/" exact style={styles.link} activestyle={styles.activeLink}>
+    <nav style={styles.container}>
+      <NavLink to="/" style={styles.linkHome}>
         Home
       </NavLink>
 
-      {isLoggedIn &&
-        (<NavLink
-          to="/contacts"
-          exact
-          style={styles.link}
-          activestyle={styles.activeLink}
-        >
-          Contacts
-        </NavLink>)(
-          <NavLink>
-            <UserMenu />
-          </NavLink>
-        )}
+      {isLoggedIn && (
+        <>
+          <div style={styles.container}>
+            <NavLink to="/contacts" style={styles.linkContacts}>
+              Contacts
+            </NavLink>
+          </div>
+        </>
+      )}
     </nav>
   );
 };

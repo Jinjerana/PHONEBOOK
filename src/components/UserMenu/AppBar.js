@@ -18,7 +18,7 @@ const styles = {
     fontWeight: 500,
     fontSize: 22,
     padding: 12,
-    color: '#80A6FF',
+    color: '#002266',
   },
 };
 

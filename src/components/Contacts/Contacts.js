@@ -14,18 +14,16 @@ const ContactsList = () => {
 
   return (
     <List>
-      {filteredContacts.map(({ name, phone, id }) => {
-        return (
-          <Item key={id}>
-            <span>{name}:</span>
-            <span>{phone}:</span>
+      {filteredContacts.map(({ name, number, id }) => (
+        <Item key={id}>
+          <span>{name}:</span>
+          <span>{number}:</span>
 
-            <Button type="button" onClick={() => dispatch(deleteContact(id))}>
-              Delete
-            </Button>
-          </Item>
-        );
-      })}
+          <Button type="button" onClick={() => dispatch(deleteContact(id))}>
+            Delete
+          </Button>
+        </Item>
+      ))}
     </List>
   );
 };

@@ -10,7 +10,7 @@ const styles = {
     display: 'flex',
     fontWeight: 500,
     fontSize: 22,
-    color: '#80A6FF',
+    color: '#002266',
   },
 };
 

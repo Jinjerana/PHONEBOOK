@@ -10,16 +10,16 @@ const styles = {
     marginRight: 250,
     fontWeight: 500,
     fontSize: 22,
-    color: '#80A6FF',
+    color: '#002266',
   },
   linkContacts: {
     marginRight: 40,
     fontWeight: 500,
     fontSize: 22,
-    color: '#80A6FF',
+    color: '#002266',
   },
   activeLink: {
-    color: '#FF6600',
+    color: '#002266',
   },
 };
 

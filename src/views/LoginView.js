@@ -19,22 +19,22 @@ const styles = {
     flexDirection: 'column',
     marginBottom: 15,
     fontSize: 22,
-    color: '#80A6FF',
+    color: '#002266',
   },
   input: {
     height: 30,
     borderWidth: 3,
     borderRadius: 5,
-    borderColor: '#80A6FF',
+    borderColor: '#002266',
   },
   button: {
     fontWeight: 700,
     fontSize: 22,
-    height: 50,
+    height: 40,
     cursor: 'pointer',
     borderRadius: 5,
-    borderColor: '#80A6FF',
-    color: '#80A6FF',
+    borderColor: '#002266',
+    color: '#002266',
   },
 };
 
@@ -64,7 +64,7 @@ export default function LoginView() {
   return (
     <div style={styles.container}>
       <h1>Login</h1>
-      <form onSubmit={handleSubmit} style={styles.form} autocomplete="off">
+      <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
         <label style={styles.label}>
           Email
           <input

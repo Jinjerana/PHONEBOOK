@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, lazy, Suspense } from 'react';
 
@@ -12,10 +12,10 @@ import authSelectors from 'Redux/auth/auth-selectors';
 import { PrivateRoute } from './UserMenu/PrivateRoute';
 import { PublicRoute } from './UserMenu/PublicRoute';
 
-const HomeView = lazy(() => import('../Redux/views/HomeView'));
-const RegisterView = lazy(() => import('../Redux/views/RegisterView'));
-const LoginView = lazy(() => import('../Redux/views/LoginView'));
-const ContactsView = lazy(() => import('../Redux/views/ContactsView'));
+const HomeView = lazy(() => import('../views/HomeView'));
+const RegisterView = lazy(() => import('../views/RegisterView'));
+const LoginView = lazy(() => import('../views/LoginView'));
+const ContactsView = lazy(() => import('../views/ContactsView'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -31,8 +31,8 @@ export const App = () => {
         <AppBar />
 
         <Routes>
-          <Route path="/" element={<PublicRoute component={HomeView} />} />
-          {/* <Route path="/" element={<HomeView />} /> */}
+          {/* <Route path="/" element={<PublicRoute component={HomeView} />} /> */}
+          <Route path="/" element={<HomeView />} />
 
           <Route
             path="/register"
@@ -52,6 +52,8 @@ export const App = () => {
               <PrivateRoute component={ContactsView} redirectTo="/login" />
             }
           />
+
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Suspense>
     )

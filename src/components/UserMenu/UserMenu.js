@@ -12,7 +12,7 @@ const styles = {
     display: 'flex',
     fontWeight: 500,
     fontSize: 22,
-    color: '#80A6FF',
+    color: '#e6ffff',
   },
   button: {
     fontWeight: 500,
@@ -21,8 +21,8 @@ const styles = {
     width: 100,
     cursor: 'pointer',
     borderRadius: 5,
-    borderColor: '#80A6FF',
-    color: '#80A6FF',
+    borderColor: '#002266',
+    color: '#002266',
   },
 };
 

@@ -22,10 +22,6 @@ export default function ContactsView() {
     <div style={barStyles}>
       <div>{isLoadingContacts && 'Please wait...'}</div>
       <AppContacts />
-      {/* <Filter />
-      <div>{isLoadingContacts && 'Please wait...'}</div>
-      <h1>Contacts</h1>
-      <ContactsList /> */}
     </div>
   );
 }
